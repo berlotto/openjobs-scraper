@@ -8,7 +8,12 @@
 import scrapy
 
 
-class VagascrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class VagaItem(scrapy.Item):
+    link = scrapy.Field()
+    body = scrapy.Field()
+    datetime = scrapy.Field()
+    path = scrapy.Field()
+    titulo = scrapy.Field()
+    empresa = scrapy.Field()
+    cidade = scrapy.Field()
+    categoria = scrapy.Field()

@@ -2,6 +2,7 @@
 import scrapy
 import re
 import rethinkdb as r
+from vagascrawler.items import VagaItem
 
 
 class OpenjobsSpider(scrapy.Spider):
@@ -20,7 +21,8 @@ class OpenjobsSpider(scrapy.Spider):
         data = response.meta['data']
         data['body'] = body
         data['datetime'] = r.now()
-        yield data
+        item = VagaItem(data)
+        yield item
 
     def parse(self, response):
         vagas = response.css("div.views-row")
